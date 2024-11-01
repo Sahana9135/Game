@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ex2.css">
+    <title>Guess the number</title>
+</head>
+
+<body>
+    <div id="frame">
+        <h1><u> Guess the number </u></h1>
+        <br><br>
+        <input id="user" placeholder="Enter a number " title="Type the  number you think the computer has chosen and only type between 1-10">
+
+        <br><br>
+        <button onclick="assume()">check</button>
+        <br><br>
+        <h3 id="ans"> </h3>
+        <h4 id="Score">your score is 10</h4>
+    </div>
+
+
+    <script>
+        var Score = 10;
+        var box = document.getElementById("frame")
+        var userVal = document.getElementById('user');
+        var result = document.getElementById('ans');
+        var point = document.getElementById('Score');
+        var randomNum = Math.floor(Math.random() * 10) + 1;
+
+        function assume() {
+
+
+            var enteredVal = userVal.value;
+            if (enteredVal == randomNum) {
+                alert("You won the match")
+                result.textContent = "you won..."
+                point.textContent = "your score is " + Score;
+                box.style.backgroundColor="green"
+            }
+            else {
+                Score = Score - 1;
+                alert("you are wrong...")
+                point.textContent = "your score is " + Score;
+                box.style.backgroundColor="red"
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
